@@ -5,9 +5,7 @@ import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 
-
 def main():
-
 	form = st.form("check_in_form")
 	form.title("Check In Form")
 	email = form.text_input("Email đăng ký")
@@ -35,7 +33,12 @@ def main():
 			)
 		else:
 			print(person["Checked"].values[0])
-			if person["Checked"].values[0]:
+			if person["Checked"].values[0] == 1:
+				check_in_person_df = None
+				result = "Email này đã được dùng để check in rồi, xin hãy nhập lại email!"
+				has_error = True
+
+			else:
 				check_in_person_df = pd.DataFrame(
 					[
 						{
@@ -50,24 +53,17 @@ def main():
 				result = str(int(ma_do_uong))
 				has_error = False
 
-			else:
-				check_in_person_df = None
-				result = "Email này đã được dùng để check in rồi, xin hãy nhập lại email!"
-				has_error = True
 
 		if check_in_person_df is not None:
 			with st.spinner("Waiting for it ..."):
 				update_data_check_in = pd.concat([check_in_sheet, check_in_person_df], axis = 0)
 				conn.update(worksheet = "check_in_sheet", data = update_data_check_in)
-				sign_up_sheet.loc[sign_up_sheet["Email"] == email,'Checked'] = True
+				sign_up_sheet.loc[sign_up_sheet["Email"] == email, 'Checked'] = 1
 				conn.update(worksheet = "sign_up_sheet", data = sign_up_sheet)
 
 		st.text("submit successfully")
 		show_result(result, has_error)
 		conn.reset()
-
-
-
 
 
 @st.dialog("Mã số đồ uống")
