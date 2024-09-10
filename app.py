@@ -39,9 +39,9 @@ def main():
 				check_in_person_df = pd.DataFrame(
 					[
 						{
-							"Tên": str(person["Name"].values[0]),
+							"Tên": str(person["Tên"].values[0]),
 							"Email": str(person["Email"].values[0]),
-							"Mã số đồ uống": str(int(person["MSDU"].values[0])),
+							"Mã số đồ uống": str(int(person["Mã số đồ uống"].values[0])),
 							"Dấu thời gian": d.now().strftime("%Y-%m-%d %H:%M:%S")
 						}
 					]
