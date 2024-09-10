@@ -26,10 +26,10 @@ def main():
 			check_in_person_df = pd.DataFrame(
 				[
 					{
-						"Name": "",
+						"Tên": "",
 						"Email": email,
-						"MSDU": "",
-						"Timestamp": d.now().strftime("%Y-%m-%d %H:%M:%S")
+						"Mã số đồ uống": "",
+						"Dấu thời gian": d.now().strftime("%Y-%m-%d %H:%M:%S")
 					}
 				]
 			)
@@ -39,10 +39,10 @@ def main():
 				check_in_person_df = pd.DataFrame(
 					[
 						{
-							"Name": str(person["Name"].values[0]),
+							"Tên": str(person["Name"].values[0]),
 							"Email": str(person["Email"].values[0]),
-							"MSDU": str(int(person["MSDU"].values[0])),
-							"Timestamp": d.now().strftime("%Y-%m-%d %H:%M:%S")
+							"Mã số đồ uống": str(int(person["MSDU"].values[0])),
+							"Dấu thời gian": d.now().strftime("%Y-%m-%d %H:%M:%S")
 						}
 					]
 				)
