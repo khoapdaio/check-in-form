@@ -1,6 +1,7 @@
 from datetime import datetime as d
 
 import pandas as pd
+import pytz
 import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
@@ -32,20 +33,20 @@ def main():
 				]
 			)
 		else:
-			print(person["Checked"].values[0])
-			if person["Checked"].values[0] == 1:
+			if person["Checked"].values[0] == 1 :
 				check_in_person_df = None
 				result = "Email này đã được dùng để check in rồi, xin hãy nhập lại email!"
 				has_error = True
 
 			else:
+				tz_VN = pytz.timezone('Asia/Ho_Chi_Minh')
 				check_in_person_df = pd.DataFrame(
 					[
 						{
 							"Tên": str(person["Tên"].values[0]),
 							"Email": str(person["Email"].values[0]),
 							"Mã số đồ uống": str(int(person["Mã số đồ uống"].values[0])),
-							"Dấu thời gian": d.now().strftime("%Y-%m-%d %H:%M:%S")
+							"Dấu thời gian": d.now(tz_VN).strftime("%Y-%m-%d %H:%M:%S")
 						}
 					]
 				)
