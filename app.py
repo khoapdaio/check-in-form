@@ -46,7 +46,7 @@ def main():
 						}
 					]
 				)
-				ma_do_uong = person["MSDU"].values[0]
+				ma_do_uong = person["Mã số đồ uống"].values[0]
 				result = str(int(ma_do_uong))
 				has_error = False
 
