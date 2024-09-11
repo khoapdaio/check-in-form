@@ -65,7 +65,10 @@ def main():
 	[data-testid="stForm"]{
 	background-color: #fff;
 	}
-	
+	[data-testid="stHeader"]{
+	background-color: #DDDDDD;
+	}
+
 	</style>
 	""", unsafe_allow_html = True)
 	st.markdown("""
@@ -76,7 +79,9 @@ def main():
 	with st.form("check_in_form",border =True ):
 
 		st.image("AIO_HN.jpg")
-		email = st.text_input("Email đăng ký")
+		st.markdown("<style>.st-bd { background-color: #fff;}</style>",
+		            unsafe_allow_html = True)
+		email = st.text_input("Email đăng ký",placeholder="Email")
 		st.divider()
 		st.markdown("<style>.stFormSubmitButton { display: flex; justify-content: center; }</style>", unsafe_allow_html = True)
 		submit_btn = st.form_submit_button("Submit",type="primary")
