@@ -1,0 +1,25 @@
+[data-testid="stAppViewContainer"] {
+    background-color: #DDDDDD;
+}
+
+[data-testid="stForm"] {
+    background-color: #fff;
+}
+
+[data-testid="stHeader"] {
+    background-color: #DDDDDD;
+}
+
+.st-bd {
+    background-color: #fff;
+}
+
+.stFormSubmitButton {
+    display: flex;
+    justify-content: center;
+}
+
+#check-in-form {
+    text-align: center;
+    font-family: Poppins-Regular, sans-serif;
+}
